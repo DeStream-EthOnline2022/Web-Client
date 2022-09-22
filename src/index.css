@@ -1,17 +1,103 @@
-*, ::before, ::after {
+:root {
+  --clr-background: #0e0c1d;
+  --clr-green: #bdfdb7;
+  --clr-disabled: #ebebe466;
+  --clr-blur: linear-gradient(#77d6ff14, #caa9ff14);
+  --clar-blur-border: #ffffff1a;
+}
+
+*,
+::before,
+::after {
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Favorit';
+  src: 
+    url('./assets/fonts/Favorit-Regular_Bold.ttf') format('truetype'),
+    url('./assets/fonts/Favorit-Regular_Bold.woff') format('woff'),
+    url('./assets/fonts/Favorit-Regular_Bold.woff2') format('woff2');
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  color: #fff;
+  font-family: 'Favorit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1, h2, h3 {
+  margin: 0;
+}
+
+button, button:focus{
+  outline: none;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  font-family: 'Favorit', sans-serif;
+}
+
+button:active{
+  outline: none;
+  background: transparent;
+  border: none;
+}
+
+.disabled {
+  pointer-events: none;
+  color: var(--clr-disabled);
+}
+
+.flex-space-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-container {
+  background-color: var(--clr-background);
+}
+
+.nav-container {
+  padding: 1em;
+}
+
+.nav-content {
+  width: min(100%, 70rem);
+  margin: 0 auto;
+}
+
+.nav-content-tab-group {
+  width: 20rem;
+  font-size: 1.125rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-44%);
+}
+
+.nav-content-tab {
+  cursor: pointer;
+}
+
+.nav-content-tab:hover {
+  color: var(--clr-green);
+}
+
+.nav-content-btn {
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.55em 1.8em;
+  border-radius: 3.25em;
+  background-image: var(--clr-blur);
+  border: 1px solid var(--clar-blur-border);
+  transition: ease 200ms;
+}
+
+.nav-content-btn:hover {
+  color: var(--clr-background);
+  background-color: var(--clr-green);
 }
