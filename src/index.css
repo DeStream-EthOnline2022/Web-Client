@@ -59,6 +59,12 @@ button:active{
   transition: ease 200ms;
 }
 
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .flex-space-between {
   display: flex;
   justify-content: space-between;
@@ -66,11 +72,15 @@ button:active{
 }
 
 .app-container {
+  height: 100vh;
   background-color: var(--clr-background);
 }
 
 .nav-container {
   padding: 1em;
+  height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-content {
@@ -106,6 +116,53 @@ button:active{
 }
 
 .nav-content-btn:hover {
+  color: var(--clr-background);
+  background-color: var(--clr-green);
+}
+
+.radial-gradient {
+  width: 100%;
+  height: 100%;
+
+  background-image: 
+    radial-gradient(at center top, #bdfdc74d, #bdfdc700 45%), 
+    radial-gradient(at center bottom, #d8c9f640, #d8c9f600 45%);
+}
+
+.placeholder-container {
+  position: relative;
+  height: calc(100% - 80px);
+  padding: 0 1em;
+}
+
+.placeholder-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(100%, 40rem);
+  height: 11.25rem;
+  flex-direction: column;
+  border-radius: 0.375em;
+  border: 1px solid var(--clar-blur-border);
+  background-image: var(--clr-blur);
+}
+
+.placeholder-header {
+  font-size: 2.25rem;
+  margin-bottom: 0.65em;
+}
+
+.placeholder-btn {
+  font-size: 1.25rem;
+  font-weight: 800;
+  padding: 0.5em 3em;
+  border-radius: 2.5em;
+  background-color: var(--clr-background);
+  transition: ease 150ms;
+}
+
+.placeholder-btn:hover {
   color: var(--clr-background);
   background-color: var(--clr-green);
 }
