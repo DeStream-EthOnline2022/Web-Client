@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'Favorit';
+  src: 
+    url('./assets/fonts/Favorit-Regular_Bold.ttf') format('truetype'),
+    url('./assets/fonts/Favorit-Regular_Bold.woff') format('woff'),
+    url('./assets/fonts/Favorit-Regular_Bold.woff2') format('woff2');
+}
+
 :root {
   --clr-background: #0e0c1d;
   --clr-green: #bdfdb7;
@@ -10,14 +18,6 @@
 ::before,
 ::after {
   box-sizing: border-box;
-}
-
-@font-face {
-  font-family: 'Favorit';
-  src: 
-    url('./assets/fonts/Favorit-Regular_Bold.ttf') format('truetype'),
-    url('./assets/fonts/Favorit-Regular_Bold.woff') format('woff'),
-    url('./assets/fonts/Favorit-Regular_Bold.woff2') format('woff2');
 }
 
 body {
@@ -50,6 +50,13 @@ button:active{
 .disabled {
   pointer-events: none;
   color: var(--clr-disabled);
+}
+
+.img-right-arrow {
+  width: 1.2em;
+  position: absolute;
+  right: 1.7em;
+  transition: ease 200ms;
 }
 
 .flex-space-between {
@@ -90,11 +97,12 @@ button:active{
 .nav-content-btn {
   font-size: 1.125rem;
   font-weight: 600;
-  padding: 0.55em 1.8em;
+  position: relative;
+  padding: 0.55em 3.4em 0.55em 1.8em;
   border-radius: 3.25em;
   background-image: var(--clr-blur);
   border: 1px solid var(--clar-blur-border);
-  transition: ease 200ms;
+  transition: ease 150ms;
 }
 
 .nav-content-btn:hover {

@@ -1,6 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { RightArrow } from '../utils/Svgs';
 
 function Navbar() {
+
+  const [isHover, setIsHover] = useState<boolean>(false);
+
   return (
     <nav className="nav-container">
       <div className="nav-content flex-space-between">
@@ -10,10 +14,14 @@ function Navbar() {
           <div className='nav-content-tab'>Stream</div>
           <div className='nav-content-tab disabled'>Statistics</div>
         </div>
-        <div className="nav-content-btn-group">
-          <button className='nav-content-btn'>Connect Wallet</button>
-          <img />
-        </div>
+        <button
+          onMouseEnter={() => setIsHover(true)}
+          onMouseLeave={() => setIsHover(false)}
+          className='nav-content-btn flex-space-between'
+        >
+          Connect Wallet
+          <RightArrow isHover={isHover} />
+        </button>
       </div>
     </nav>
   );
