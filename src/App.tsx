@@ -4,6 +4,7 @@ import usePersistState from './hooks/usePersistState';
 import { UserContext } from './contexts/userContext';
 import Placeholder from './components/Placeholder';
 import { ethers } from 'ethers';
+import Home from './components/Home';
 
 declare global {
   interface Window {
@@ -20,7 +21,7 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <div className="app-container">
         <Navbar />
-        <Placeholder />
+        <Home />
       </div>
     </UserContext.Provider>
   );
