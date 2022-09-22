@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import usePersistState from './hooks/usePersistState';
 import { UserContext } from './contexts/userContext';
@@ -13,7 +13,8 @@ declare global {
 
 function App() {
 
-  const [user, setUser] = usePersistState('user', { address: '' });
+  // const [user, setUser] = usePersistState('user', { address: '' });
+  const [user, setUser] = useState({ address: '' });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

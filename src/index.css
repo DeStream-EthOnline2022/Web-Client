@@ -53,10 +53,15 @@ button:active{
 }
 
 .img-right-arrow {
-  width: 1.2em;
+  width: 1.2rem;
   position: absolute;
   right: 1.7em;
   transition: ease 200ms;
+}
+
+.img-metamask {
+  width: 1.75rem;
+  margin-right: 0.5em;
 }
 
 .flex-center {
@@ -102,6 +107,13 @@ button:active{
 
 .nav-content-tab:hover {
   color: var(--clr-green);
+}
+
+.nav-content-chip {
+  padding: 0.625em 2em;
+  border-radius: 3.125em;
+  background-image: var(--clr-blur);
+  border: 1px solid var(--clar-blur-border);
 }
 
 .nav-content-btn {
