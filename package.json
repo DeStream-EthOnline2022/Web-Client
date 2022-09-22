@@ -43,6 +43,7 @@
     ]
   },
   "devDependencies": {
-    "@types/store": "^2.0.2"
+    "@types/store": "^2.0.2",
+    "ethers": "^5.7.1"
   }
 }

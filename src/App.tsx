@@ -3,6 +3,13 @@ import Navbar from './components/Navbar';
 import usePersistState from './hooks/usePersistState';
 import { UserContext } from './contexts/userContext';
 import Placeholder from './components/Placeholder';
+import { ethers } from 'ethers';
+
+declare global {
+  interface Window {
+    ethereum?: ethers.providers.ExternalProvider
+  }
+}
 
 function App() {
 
