@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Favorit';
-  src: 
+  src:
     url('./assets/fonts/Favorit-Regular_Bold.ttf') format('truetype'),
     url('./assets/fonts/Favorit-Regular_Bold.woff') format('woff'),
     url('./assets/fonts/Favorit-Regular_Bold.woff2') format('woff2');
@@ -28,7 +28,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   margin: 0;
 }
 
@@ -56,6 +58,14 @@ button {
 .img-metamask {
   width: 1.75rem;
   margin-right: 0.5em;
+}
+
+.img-globe {
+  width: 7.5rem;
+}
+
+.img-matic {
+  width: 1.25rem;
 }
 
 .flex-center {
@@ -136,22 +146,92 @@ button {
   width: 100%;
   height: 100%;
 
-  background-image: 
-    radial-gradient(at center top, #bdfdc74d, #bdfdc700 45%), 
+  background-image:
+    radial-gradient(at center top, #bdfdc74d, #bdfdc700 45%),
     radial-gradient(at center bottom, #d8c9f640, #d8c9f600 45%);
 }
 
+.purchasefield-container,
 .placeholder-container {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: min(100%, 40rem);
-  height: 11.25rem;
   flex-direction: column;
   border-radius: 0.375em;
   border: 1px solid var(--clar-blur-border);
   background-image: var(--clr-blur);
+}
+
+.purchasefield-container {
+  width: min(100%, 60rem);
+  height: 30rem;
+  padding: 2.5em;
+}
+
+.purchasefield-header {
+  font-size: 2.25rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 1.33em;
+}
+
+.purchasefields {
+  width: 100%;
+  margin-bottom: 2.25em;
+}
+
+.thead {
+  border-bottom: 1px solid #fff;
+  padding: 0.5em 1.25em;
+}
+
+.theader {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.tbody {
+  padding: 1.25em;
+}
+
+.purchase-item {}
+
+.nft-info {
+  margin-left: 1.5em;
+}
+
+.nft-name {
+  font-size: 1.25rem;
+  font-weight: 800;
+  margin-bottom: 0.4em;
+}
+
+.nft-desc {}
+
+.nft-tkn-group {
+  margin-bottom: 0.2em;
+}
+
+.nft-tkn-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 0.3em 0 0 0.4em;
+}
+
+.purchase-btn {
+  font-size: 1.25rem;
+  font-weight: 800;
+  width: 18em;
+  height: 2.4em;
+  border-radius: 2.5em;
+  background-color: var(--clr-background);
+}
+
+.placeholder-container {
+  width: min(100%, 40rem);
+  height: 11.25rem;
 }
 
 .placeholder-header {
@@ -166,4 +246,3 @@ button {
   border-radius: 2.5em;
   background-color: var(--clr-background);
 }
-

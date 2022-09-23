@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import usePersistState from './hooks/usePersistState';
 import { UserContext } from './contexts/userContext';
-import Placeholder from './components/Placeholder';
 import { ethers } from 'ethers';
 import Home from './components/Home';
 

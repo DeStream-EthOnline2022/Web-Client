@@ -17,7 +17,7 @@ export const RightArrow = (props: any) => {
   )
 }
 
-export const MetaMask = (props: any) => {
+export const MetaMask = () => {
   return (
     <svg
       x='0px'
@@ -26,8 +26,8 @@ export const MetaMask = (props: any) => {
       className='img-metamask'
     >
       <path fill='#e2761b' stroke='#e2761b' strokeLinecap='round' strokeLinejoin='round' d='m274.1 35.5-99.5 73.9L193 65.8z' />
-      <path fill='#e4761b' stroke='#e4761b' strokeLinecap='round' strokeLinejoin='round'  d='m44.4 35.5 98.7 74.6-17.5-44.3zm193.9 171.3-26.5 40.6 56.7 15.6 16.3-55.3zm-204.4.9L50.1 263l56.7-15.6-26.5-40.6z' />
-      <path fill='#e4761b' stroke='#e4761b' strokeLinecap='round' strokeLinejoin='round'  d='m103.6 138.2-15.8 23.9 56.3 2.5-2-60.5zm111.3 0-39-34.8-1.3 61.2 56.2-2.5zM106.8 247.4l33.8-16.5-29.2-22.8zm71.1-16.5 33.9 16.5-4.7-39.3z' />
+      <path fill='#e4761b' stroke='#e4761b' strokeLinecap='round' strokeLinejoin='round' d='m44.4 35.5 98.7 74.6-17.5-44.3zm193.9 171.3-26.5 40.6 56.7 15.6 16.3-55.3zm-204.4.9L50.1 263l56.7-15.6-26.5-40.6z' />
+      <path fill='#e4761b' stroke='#e4761b' strokeLinecap='round' strokeLinejoin='round' d='m103.6 138.2-15.8 23.9 56.3 2.5-2-60.5zm111.3 0-39-34.8-1.3 61.2 56.2-2.5zM106.8 247.4l33.8-16.5-29.2-22.8zm71.1-16.5 33.9 16.5-4.7-39.3z' />
       <path fill='#d7c1b3' stroke='#d7c1b3' strokeLinecap='round' strokeLinejoin='round' d='m211.8 247.4-33.9-16.5 2.7 22.1-.3 9.3zm-105 0 31.5 14.9-.2-9.3 2.5-22.1z' />
       <path fill='#233447' stroke='#233447' strokeLinecap='round' strokeLinejoin='round' d='m138.8 193.5-28.2-8.3 19.9-9.1zm40.9 0 8.3-17.4 20 9.1z' />
       <path fill='#cd6116' stroke='#cd6116' strokeLinecap='round' strokeLinejoin='round' d='m106.8 247.4 4.8-40.6-31.3.9zM207 206.8l4.8 40.6 26.5-39.7zm23.8-44.7-56.2 2.5 5.2 28.9 8.3-17.4 20 9.1zm-120.2 23.1 20-9.1 8.2 17.4 5.3-28.9-56.3-2.5z' />
@@ -37,6 +37,26 @@ export const MetaMask = (props: any) => {
       <path fill='#161616' stroke='#161616' strokeLinecap='round' strokeLinejoin='round' d='m177.9 230.9-4.8-3.3h-27.7l-4.8 3.3-2.5 22.1 2.3-2.2h37.7l2.5 2.2z' />
       <path fill='#763d16' stroke='#763d16' strokeLinecap='round' strokeLinejoin='round' d='m278.3 114.2 8.5-40.8-12.7-37.9-96.2 71.4 37 31.3 52.3 15.3 11.6-13.5-5-3.6 8-7.3-6.2-4.8 8-6.1zM31.8 73.4l8.5 40.8-5.4 4 8 6.1-6.1 4.8 8 7.3-5 3.6 11.5 13.5 52.3-15.3 37-31.3-96.2-71.4z' />
       <path fill='#f6851b' stroke='#f6851b' d='m267.2 153.5-52.3-15.3 15.9 23.9-23.7 46 31.2-.4h46.5zm-163.6-15.3-52.3 15.3-17.4 54.2h46.4l31.1.4-23.6-46zm71 26.4 3.3-57.7 15.2-41.1h-67.5l15 41.1 3.5 57.7 1.2 18.2.1 44.8h27.7l.2-44.8z' />
+    </svg>
+  )
+}
+
+export const Matic = () => {
+  return (
+    <svg
+      x='0px'
+      y='0px'
+      viewBox='0 0 38.4 33.5'
+      className='img-matic'
+    >
+      <path
+        fill='#8247e5'
+        d='M29,10.2c-0.7-0.4-1.6-0.4-2.4,0L21,13.5l-3.8,2.1l-5.5,3.3c-0.7,0.4-1.6,0.4-2.4,0L5,16.3
+        c-0.7-0.4-1.2-1.2-1.2-2.1v-5c0-0.8,0.4-1.6,1.2-2.1l4.3-2.5c0.7-0.4,1.6-0.4,2.4,0L16,7.2c0.7,0.4,1.2,1.2,1.2,2.1v3.3l3.8-2.2V7
+        c0-0.8-0.4-1.6-1.2-2.1l-8-4.7c-0.7-0.4-1.6-0.4-2.4,0L1.2,5C0.4,5.4,0,6.2,0,7v9.4c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7
+        c0.7,0.4,1.6,0.4,2.4,0l5.5-3.2l3.8-2.2l5.5-3.2c0.7-0.4,1.6-0.4,2.4,0l4.3,2.5c0.7,0.4,1.2,1.2,1.2,2.1v5c0,0.8-0.4,1.6-1.2,2.1
+        L29,28.8c-0.7,0.4-1.6,0.4-2.4,0l-4.3-2.5c-0.7-0.4-1.2-1.2-1.2-2.1V21l-3.8,2.2v3.3c0,0.8,0.4,1.6,1.2,2.1l8.1,4.7
+        c0.7,0.4,1.6,0.4,2.4,0l8.1-4.7c0.7-0.4,1.2-1.2,1.2-2.1V17c0-0.8-0.4-1.6-1.2-2.1L29,10.2z'/>
     </svg>
   )
 }

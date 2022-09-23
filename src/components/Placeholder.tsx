@@ -14,10 +14,10 @@ function Placeholder(props: any) {
     if (window.ethereum) {
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       const nft = new ethers.Contract(chains[80001].contract, ERC721_ABI, provider);
-      const balance = await nft.balanceOf(userCtx?.user.address, 0);
+      const balance = await nft.balanceOf(userCtx?.user.address);
 
       if (balance > 0) {
-        props.navigation.navigate('Livestream');
+        // props.navigation.navigate('Livestream');
       } else {
         setShouldPurchase(true);
       }

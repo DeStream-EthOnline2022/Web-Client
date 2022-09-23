@@ -15,7 +15,7 @@ function Navbar() {
       userCtx?.user.address.slice(0, 5) + '...' + userCtx?.user.address.slice(userCtx?.user.address.length - 4);
   }
 
-  const login = async () => {
+  const setAccount = async () => {
     try {
       if (window.ethereum) {
         setLoadingAcc(true);
@@ -33,10 +33,14 @@ function Navbar() {
 
   const Chip = () => {
     return (
-      <div className='nav-content-chip flex-space-between'>
+      <button
+        disabled={loadingAcc}
+        onClick={() => setAccount()}
+        className='nav-content-chip flex-space-between'
+      >
         <MetaMask />
         {truncatedAcc}
-      </div>
+      </button>
     )
   }
 
@@ -44,7 +48,7 @@ function Navbar() {
     return (
       <button
         disabled={loadingAcc}
-        onClick={() => login()}
+        onClick={() => setAccount()}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         className={`nav-content-btn flex-space-between`}
