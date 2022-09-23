@@ -25,7 +25,12 @@ function Placeholder(props: any) {
   }
 
   return (
-    <div className="placeholder-container flex-center">
+    <motion.div
+      className="placeholder-container flex-center"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h2 className='placeholder-header'>Access Livestream</h2>
       <motion.button
         whileTap={{ scale: 0.9 }}
@@ -34,7 +39,7 @@ function Placeholder(props: any) {
       >
         Go
       </motion.button>
-    </div>
+    </motion.div>
   );
 }
 

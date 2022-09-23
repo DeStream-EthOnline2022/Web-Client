@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 import { MetaMask, RightArrow } from '../utils/Svgs';
 import { ethers } from 'ethers';
 import { UserContext } from '../contexts/userContext';
+import { NavLink } from 'react-router-dom'
 
 function Navbar() {
 
@@ -64,8 +65,8 @@ function Navbar() {
       <div className="nav-content flex-space-between">
         <h1 className='nav-content-header'>DeStream</h1>
         <div className='nav-content-tab-group flex-space-between'>
-          <div className='nav-content-tab'>Home</div>
-          <div className='nav-content-tab'>Stream</div>
+          <NavLink to='/' className='nav-content-tab'>Home</NavLink>
+          <NavLink to='stream' className='nav-content-tab'>Stream</NavLink>
           <div className='nav-content-tab disabled'>Statistics</div>
         </div>
         {userCtx?.user.address ? <Chip /> : <Button />}

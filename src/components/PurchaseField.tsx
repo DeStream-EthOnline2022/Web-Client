@@ -35,7 +35,12 @@ function PurchaseField(props: any) {
   }
 
   return (
-    <div className='purchasefield-container flex-center'>
+    <motion.div
+      className='purchasefield-container flex-center'
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <h2 className='purchasefield-header'>Purchase NFT Membership</h2>
       <div className='purchasefields'>
         <div className='thead flex-space-between'>
@@ -68,7 +73,7 @@ function PurchaseField(props: any) {
           'Complete Purchase'
         }
       </motion.button>
-    </div>
+    </motion.div>
   );
 }
 
