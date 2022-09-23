@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import { MetaMask, RightArrow } from '../utils/Svgs';
 import { ethers } from 'ethers';
 import { UserContext } from '../contexts/userContext';
+import { NavLink } from 'react-router-dom'
+import { motion } from 'framer-motion';
 
 function Navbar() {
 
@@ -21,8 +23,10 @@ function Navbar() {
         setLoadingAcc(true);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const accounts = await provider.send('eth_requestAccounts', []);
-        userCtx?.setUser({ address: accounts[0] });
-        console.log(accounts);
+        userCtx?.setUser(prev => ({ 
+          ...prev,
+          address: accounts[0] 
+        }));
       }
     } catch (err) {
       console.log(err);
@@ -36,10 +40,16 @@ function Navbar() {
       <button
         disabled={loadingAcc}
         onClick={() => setAccount()}
-        className='nav-content-chip flex-space-between'
+        className='nav-content-chip'
       >
-        <MetaMask />
-        {truncatedAcc}
+        <motion.span
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className='flex-space-between'
+        >
+          <MetaMask />
+          {truncatedAcc}
+        </motion.span>
       </button>
     )
   }
@@ -64,8 +74,8 @@ function Navbar() {
       <div className="nav-content flex-space-between">
         <h1 className='nav-content-header'>DeStream</h1>
         <div className='nav-content-tab-group flex-space-between'>
-          <div className='nav-content-tab'>Home</div>
-          <div className='nav-content-tab'>Stream</div>
+          <NavLink to='/' className='nav-content-tab'>Home</NavLink>
+          <NavLink to='stream' className='nav-content-tab'>Stream</NavLink>
           <div className='nav-content-tab disabled'>Statistics</div>
         </div>
         {userCtx?.user.address ? <Chip /> : <Button />}

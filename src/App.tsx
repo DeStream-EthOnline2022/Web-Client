@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import usePersistState from './hooks/usePersistState';
 import { UserContext } from './contexts/userContext';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { ethers } from 'ethers';
-import Home from './components/Home';
+import AnimatedRoutes from './components/AnimatedRoutes';
 
 declare global {
   interface Window {
@@ -14,14 +15,19 @@ declare global {
 function App() {
 
   // const [user, setUser] = usePersistState('user', { address: '' });
-  const [user, setUser] = useState({ address: '' });
+  const [user, setUser] = useState({ 
+    address: '', 
+    isMember: false 
+  });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      <div className="app-container">
-        <Navbar />
-        <Home />
-      </div>
+      <Router>
+        <div className="app-container">
+          <Navbar />
+          <AnimatedRoutes />
+        </div>
+      </Router>
     </UserContext.Provider>
   );
 }

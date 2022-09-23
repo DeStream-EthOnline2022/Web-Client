@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Placeholder from './Placeholder';
 import PurchaseField from './PurchaseField';
+import { motion } from 'framer-motion';
 
 function Home() {
 
