@@ -218,6 +218,10 @@ button {
 
 .nft-desc {}
 
+.skeleton-texts {
+  margin-left: 1.5em;
+}
+
 .nft-tkn-group {
   margin-bottom: 0.2em;
 }

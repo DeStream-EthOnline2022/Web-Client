@@ -28,13 +28,18 @@ function PurchaseField(props: any) {
         const tx = await nft.connect(signer).claimToken({ value: ethers.utils.parseEther('0.1') });
         const txReceipt = await tx.wait();
         console.log(txReceipt);
-        // props.navigation.navigate('Livestream');
       }
     } catch (err) {
       console.log(err);
     } finally {
       setIsLoading(false);
     }
+  }
+
+  const handleImgLoad = () => {
+    setTimeout(() => {
+      setImgLoaded(true);
+    }, 1500);
   }
 
   const textHeaderStyles = {
@@ -46,6 +51,11 @@ function PurchaseField(props: any) {
   const textDescStyle = {
     fontSize: '1rem',
     transform: 'scale(1, 1)',
+  }
+
+  const textPriceStyle = {
+    fontSize: '2.5rem',
+    display: imgLoaded ? 'none' : 'block'
   }
 
   return (
@@ -62,26 +72,39 @@ function PurchaseField(props: any) {
         </div>
         <div className='tbody flex-space-between'>
           <div className='purchase-item flex-space-between'>
-            {/* <img
+            <img
               src={globe} alt=''
               className='img-globe'
-              onLoad={() => setImgLoaded(true)}
+              onLoad={() => handleImgLoad()}
               style={{ display: imgLoaded ? 'block' : 'none' }}
-            /> */}
-            <Skeleton variant='rectangular' animation='wave' width='7.5rem' height='7.5rem' />
-            <div className='nft-info'>
-              <div className='nft-name'>DeStream Membership</div>
-              <div className='nft-desc disabled'>Quantity: 1</div>
-            </div>
-            <div className='skeleton-texts'>
-              <Skeleton variant='text' animation='wave' width='17.5rem' sx={textHeaderStyles} className='skeleton-text-header' />
+            />
+            <Skeleton
+              variant='rectangular'
+              animation='wave'
+              width='7.5rem'
+              height='7.5rem'
+              style={{ display: imgLoaded ? 'none' : 'block' }}
+            />
+            {imgLoaded &&
+              <div className='nft-info'>
+                <div className='nft-name'>DeStream Membership</div>
+                <div className='nft-desc disabled'>Quantity: 1</div>
+              </div>
+            }
+            <div className='skeleton-texts' style={{ display: imgLoaded ? 'none' : 'block' }}>
+              <Skeleton variant='text' animation='wave' width='17.5rem' sx={textHeaderStyles} />
               <Skeleton variant='text' animation='wave' width='8.5rem' sx={textDescStyle} />
             </div>
           </div>
           <div className='purchase-price'>
             <div className='nft-tkn-group flex-center'>
-              <Matic />
-              <div className='nft-tkn-price'>0.1</div>
+              {imgLoaded &&
+                <>
+                  <Matic />
+                  <div className='nft-tkn-price'>0.1</div>
+                </>
+              }
+              <Skeleton variant='text' animation='wave' width='5rem' sx={textPriceStyle} />
             </div>
           </div>
         </div>
