@@ -2,6 +2,7 @@ import { createContext } from "react";
 
 export type UserProps = {
   address: string,
+  isMember: boolean,
 }
 
 export interface UserContextInterface {

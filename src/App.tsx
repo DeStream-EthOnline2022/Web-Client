@@ -15,7 +15,10 @@ declare global {
 function App() {
 
   // const [user, setUser] = usePersistState('user', { address: '' });
-  const [user, setUser] = useState({ address: '' });
+  const [user, setUser] = useState({ 
+    address: '', 
+    isMember: false 
+  });
 
   return (
     <UserContext.Provider value={{ user, setUser }}>

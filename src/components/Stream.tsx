@@ -1,7 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
+import { UserContext } from '../contexts/userContext';
+import { Lock } from '../utils/Svgs';
 
 function Stream() {
+
+  const userCtx = useContext(UserContext);
 
   const [height, setHeight] = useState<number>(540);
   const frame = useRef<HTMLIFrameElement>(null);
@@ -25,19 +29,29 @@ function Stream() {
 
   return (
     <div className='home-container'>
-      <motion.iframe
-        ref={frame}
-        src={`https://lvpr.tv?v=${playbackId}`}
-        // frameBorder='0'
-        allowFullScreen
-        allow='autoplay; encrypted-media; picture-in-picture'
-        sandbox='allow-scripts'
-        className='iframe'
-        style={{ height }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-      >
-      </motion.iframe>
+      {userCtx?.user.isMember ?
+        <motion.iframe
+          ref={frame}
+          src={`https://lvpr.tv?v=${playbackId}`}
+          allowFullScreen
+          allow='autoplay; encrypted-media; picture-in-picture'
+          sandbox='allow-scripts'
+          className='iframe'
+          style={{ height }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+        </motion.iframe>
+        :
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          style={{ height }}
+          className='iframe-placeholder flex-center'
+        >
+          <Lock />
+        </motion.div>
+      }
       <div className='radial-gradient'></div>
     </div>
   );

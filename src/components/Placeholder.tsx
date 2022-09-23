@@ -1,43 +1,65 @@
-import React, { useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { ethers } from 'ethers';
 import { UserContext } from '../contexts/userContext';
+import { useNavigate } from 'react-router-dom';
 import chains from '../utils/chains.json';
 import ERC721_ABI from '../abi/erc721.json';
+import CircularProgress from '@mui/material/CircularProgress';
 
 function Placeholder(props: any) {
 
   const { setShouldPurchase } = props;
   const userCtx = useContext(UserContext);
+  const navigate = useNavigate();
+
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const checkNft = async () => {
-    if (window.ethereum) {
-      const provider = new ethers.providers.Web3Provider(window.ethereum);
-      const nft = new ethers.Contract(chains[80001].contract, ERC721_ABI, provider);
-      const balance = await nft.balanceOf(userCtx?.user.address);
-
-      if (balance > 0) {
-        // props.navigation.navigate('Livestream');
-      } else {
-        setShouldPurchase(true);
+    try {
+      if (window.ethereum) {
+        setIsLoading(true)
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const nft = new ethers.Contract(chains[80001].contract, ERC721_ABI, provider);
+        const BNbalance = await nft.balanceOf(userCtx?.user.address);
+        const balance = BNbalance.toNumber();
+        if (balance > 0) {
+          userCtx?.setUser(prev => ({
+            ...prev,
+            isMember: true
+          }));
+          navigate('stream');
+        } else {
+          setShouldPurchase(true);
+        }
       }
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setIsLoading(false)
     }
   }
+
+  const disabled = 
+    userCtx?.user.address === '' ? 'disabled' : '';
 
   return (
     <motion.div
       className="placeholder-container flex-center"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
     >
       <h2 className='placeholder-header'>Access Livestream</h2>
       <motion.button
         whileTap={{ scale: 0.9 }}
         onClick={() => checkNft()}
-        className='placeholder-btn'
+        className={`placeholder-btn flex-center ${disabled}`}
       >
-        Go
+        {isLoading ?
+          <CircularProgress color='inherit' size='1.5rem' /> 
+          :
+          'Go'
+        }
       </motion.button>
     </motion.div>
   );
