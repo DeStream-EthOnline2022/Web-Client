@@ -31,10 +31,10 @@ function PurchaseField() {
         const nft = new ethers.Contract(chains[80001].contract, ERC721_ABI, provider);
         const tx = await nft.connect(signer).claimToken({ value: ethers.utils.parseEther('0.1') });
         const txReceipt = await tx.wait();
-        userCtx?.setUser(prev => ({
-          ...prev,
+        userCtx?.setUser({
+          ...userCtx?.user,
           isMember: true
-        }));
+        });
         navigate('stream');
         console.log(txReceipt);
       }

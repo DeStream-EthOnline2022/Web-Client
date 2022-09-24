@@ -28,10 +28,10 @@ function Placeholder(props: PlaceholderProps) {
         const BNbalance = await nft.balanceOf(userCtx?.user.address);
         const balance = BNbalance.toNumber();
         if (balance > 0) {
-          userCtx?.setUser(prev => ({
-            ...prev,
+          userCtx?.setUser({
+            ...userCtx?.user,
             isMember: true
-          }));
+          });
           navigate('stream');
         } else {
           setShouldPurchase(true);

@@ -12,10 +12,10 @@ function Home() {
 
   useEffect(() => {
     const handleAccChange = (accounts: any) => {
-      userCtx?.setUser(prev => ({
-        ...prev,
+      userCtx?.setUser({
+        ...userCtx?.user,
         address: accounts[0]
-      }));
+      });
       setShouldPurchase(false);
       console.log('handling account change...')
     }
