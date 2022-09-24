@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { MetaMask, RightArrow } from '../utils/Svgs';
 import { ethers } from 'ethers';
 import { UserContext } from '../contexts/userContext';

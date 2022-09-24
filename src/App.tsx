@@ -15,12 +15,15 @@ declare global {
 
 function App() {
 
-  // const [user, setUser] = usePersistState('user', { address: '' });
-  const [isValidChain, setIsValidChain] = useState(false);
-  const [user, setUser] = useState<UserProps>({
+  const [user, setUser] = usePersistState('user', {
     address: '',
     isMember: false
   });
+  const [isValidChain, setIsValidChain] = useState(false);
+  // const [user, setUser] = useState<UserProps>({
+  //   address: '',
+  //   isMember: false
+  // });
 
   const checkChainId = async () => {
     if (window.ethereum) {
@@ -42,6 +45,7 @@ function App() {
         setIsValidChain(false);
       }
     }
+
     let ethProvider: MetaMaskInpageProvider;
     if (window.ethereum) {
       ethProvider = (window.ethereum as unknown  as MetaMaskInpageProvider);
