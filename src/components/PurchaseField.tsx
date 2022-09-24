@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import logo from '../assets/images/logo.jpg';
 import { Matic } from '../utils/Svgs';
 import { motion } from 'framer-motion';
@@ -7,15 +8,18 @@ import chains from '../utils/chains.json';
 import ERC721_ABI from '../abi/erc721.json';
 import CircularProgress from '@mui/material/CircularProgress';
 import Skeleton from '@mui/material/Skeleton';
+import { UserContext } from '../contexts/userContext';
 
 function PurchaseField() {
+
+  const userCtx = useContext(UserContext);
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [imgLoaded, setImgLoaded] = useState<boolean>(false);
 
-  const img = useRef<HTMLImageElement>(null);
-
   type ExternalProvider = ethers.providers.ExternalProvider;
+
+  const navigate = useNavigate();
 
   const purchaseNft = async () => {
     console.log('purchase nft...');
@@ -27,6 +31,11 @@ function PurchaseField() {
         const nft = new ethers.Contract(chains[80001].contract, ERC721_ABI, provider);
         const tx = await nft.connect(signer).claimToken({ value: ethers.utils.parseEther('0.1') });
         const txReceipt = await tx.wait();
+        userCtx?.setUser(prev => ({
+          ...prev,
+          isMember: true
+        }));
+        navigate('stream');
         console.log(txReceipt);
       }
     } catch (err) {
