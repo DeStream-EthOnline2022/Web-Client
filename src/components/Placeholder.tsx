@@ -7,7 +7,11 @@ import chains from '../utils/chains.json';
 import ERC721_ABI from '../abi/erc721.json';
 import CircularProgress from '@mui/material/CircularProgress';
 
-function Placeholder(props: any) {
+type PlaceholderProps = {
+  setShouldPurchase: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function Placeholder(props: PlaceholderProps) {
 
   const { setShouldPurchase } = props;
   const userCtx = useContext(UserContext);

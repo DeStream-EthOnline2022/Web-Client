@@ -8,7 +8,7 @@ import ERC721_ABI from '../abi/erc721.json';
 import CircularProgress from '@mui/material/CircularProgress';
 import Skeleton from '@mui/material/Skeleton';
 
-function PurchaseField(props: any) {
+function PurchaseField() {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [imgLoaded, setImgLoaded] = useState<boolean>(false);

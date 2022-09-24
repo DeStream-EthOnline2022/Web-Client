@@ -5,7 +5,13 @@ import { UserContext } from '../contexts/userContext';
 import { NavLink } from 'react-router-dom'
 import { motion } from 'framer-motion';
 
-function Navbar() {
+type NavbarPops = {
+  isValidChain: boolean,
+}
+
+function Navbar(props: NavbarPops) {
+
+  const { isValidChain } = props;
 
   const userCtx = useContext(UserContext);
   const [isHover, setIsHover] = useState<boolean>(false);
@@ -23,9 +29,9 @@ function Navbar() {
         setLoadingAcc(true);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const accounts = await provider.send('eth_requestAccounts', []);
-        userCtx?.setUser(prev => ({ 
+        userCtx?.setUser(prev => ({
           ...prev,
-          address: accounts[0] 
+          address: accounts[0]
         }));
       }
     } catch (err) {
@@ -54,17 +60,19 @@ function Navbar() {
     )
   }
 
+  const disabled = isValidChain ? '' : 'disabled';
+
   const Button = () => {
     return (
       <button
-        disabled={loadingAcc}
+        disabled={loadingAcc || !isValidChain}
         onClick={() => setAccount()}
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
-        className={`nav-content-btn flex-space-between`}
+        className={`nav-content-btn flex-space-between ${disabled}`}
       >
         Connect Wallet
-        <RightArrow isHover={isHover} />
+        <RightArrow isHover={isHover} isValidChain={isValidChain} />
       </button>
     )
   }
