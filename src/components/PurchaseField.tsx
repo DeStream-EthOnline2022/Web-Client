@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import globe from '../assets/images/globe.jpg';
+import logo from '../assets/images/logo.jpg';
 import { Matic } from '../utils/Svgs';
 import { motion } from 'framer-motion';
 import { ethers } from 'ethers';
@@ -73,8 +73,8 @@ function PurchaseField() {
         <div className='tbody flex-space-between'>
           <div className='purchase-item flex-space-between'>
             <img
-              src={globe} alt=''
-              className='img-globe'
+              src={logo} alt=''
+              className='img-logo'
               onLoad={() => handleImgLoad()}
               style={{ display: imgLoaded ? 'block' : 'none' }}
             />
