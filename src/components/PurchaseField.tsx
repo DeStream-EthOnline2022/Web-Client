@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import logo from '../assets/images/logo.jpg';
-import { Matic } from '../utils/Svgs';
+import { Matic, Refresh, Warning } from '../utils/Svgs';
 import { motion } from 'framer-motion';
 import { ethers } from 'ethers';
 import chains from '../utils/chains.json';
@@ -20,6 +20,7 @@ function PurchaseField(props: PurchaseFieldProps) {
 
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [imgLoaded, setImgLoaded] = useState<boolean>(false);
+  const [isError, setIsError] = useState<boolean>(false);
 
   type ExternalProvider = ethers.providers.ExternalProvider;
 
@@ -29,6 +30,7 @@ function PurchaseField(props: PurchaseFieldProps) {
     console.log('purchase nft...');
     try {
       if (window.ethereum) {
+        setIsError(false);
         setIsLoading(true);
         const provider = new ethers.providers.Web3Provider((window.ethereum as ExternalProvider));
         const signer = provider.getSigner();
@@ -45,8 +47,21 @@ function PurchaseField(props: PurchaseFieldProps) {
       }
     } catch (err) {
       console.log(err);
+      setIsError(true);
     } finally {
       setIsLoading(false);
+    }
+  }
+
+  const errorBtn = isError ? 'error-btn' : '';
+
+  const BtnContent = () => {
+    if (isLoading) {
+      return <CircularProgress color='inherit' size='1.5rem' />
+    } else if (isError) {
+      return <Warning />
+    } else {
+      return <span>Complete Purchase</span>
     }
   }
 
@@ -126,13 +141,9 @@ function PurchaseField(props: PurchaseFieldProps) {
       <motion.button
         whileTap={{ scale: 0.9 }}
         onClick={() => purchaseNft()}
-        className='purchase-btn flex-center'
+        className={`purchase-btn flex-center ${errorBtn}`}
       >
-        {isLoading ?
-          <CircularProgress color='inherit' size='1.5rem' />
-          :
-          'Complete Purchase'
-        }
+        <BtnContent />
       </motion.button>
     </motion.div>
   );
