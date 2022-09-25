@@ -29,9 +29,10 @@ function Navbar(props: NavbarPops) {
         setLoadingAcc(true);
         const provider = new ethers.providers.Web3Provider(window.ethereum);
         const accounts = await provider.send('eth_requestAccounts', []);
+        const address = ethers.utils.getAddress(accounts[0]);
         userCtx?.setUser({
           ...userCtx?.user,
-          address: accounts[0]
+          address
         });
       }
     } catch (err) {

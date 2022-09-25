@@ -10,7 +10,11 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Skeleton from '@mui/material/Skeleton';
 import { UserContext } from '../contexts/userContext';
 
-function PurchaseField() {
+type PurchaseFieldProps = {
+  setShouldPurchase: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+function PurchaseField(props: PurchaseFieldProps) {
 
   const userCtx = useContext(UserContext);
 
@@ -36,6 +40,7 @@ function PurchaseField() {
           isMember: true
         });
         navigate('stream');
+        props.setShouldPurchase(false);
         console.log(txReceipt);
       }
     } catch (err) {

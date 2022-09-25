@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from './components/Navbar';
 import usePersistState from './hooks/usePersistState';
-import { UserContext, UserProps } from './contexts/userContext';
+import { UserContext } from './contexts/userContext';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { ethers } from 'ethers';
-import AnimatedRoutes from './components/AnimatedRoutes';
+import NavigationRoutes from './components/NavigationRoutes';
 import { MetaMaskInpageProvider } from '@metamask/providers';
 
 declare global {
@@ -19,11 +19,8 @@ function App() {
     address: '',
     isMember: false
   });
-  const [isValidChain, setIsValidChain] = useState(false);
-  // const [user, setUser] = useState<UserProps>({
-  //   address: '',
-  //   isMember: false
-  // });
+  const [isValidChain, setIsValidChain] = useState<boolean>(false);
+  const [accountChanged, setAccountChanged] = useState<number>(0);
 
   const checkChainId = async () => {
     if (window.ethereum) {
@@ -39,6 +36,7 @@ function App() {
     checkChainId();
 
     const handleChainChange = (chainId: any) => {
+      console.log('handling chain change...')
       if (chainId === '0x13881') {
         setIsValidChain(true);
       } else {
@@ -46,10 +44,21 @@ function App() {
       }
     }
 
+    const handleAccChange = (accounts: any) => {
+      console.log('handling account change...')
+      const address = ethers.utils.getAddress(accounts[0]);
+      setUser({
+        address,
+        isMember: false
+      });
+      setAccountChanged(prev => prev + 1);
+    }
+
     let ethProvider: MetaMaskInpageProvider;
     if (window.ethereum) {
-      ethProvider = (window.ethereum as unknown  as MetaMaskInpageProvider);
+      ethProvider = (window.ethereum as unknown as MetaMaskInpageProvider);
       ethProvider.on('chainChanged', handleChainChange);
+      ethProvider.on('accountsChanged', handleAccChange);
     }
 
     return () => {
@@ -64,7 +73,7 @@ function App() {
       <Router>
         <div className="app-container">
           <Navbar isValidChain={isValidChain} />
-          <AnimatedRoutes />
+          <NavigationRoutes accountChanged={accountChanged} />
         </div>
       </Router>
     </UserContext.Provider>

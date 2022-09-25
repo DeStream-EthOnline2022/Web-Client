@@ -1,12 +1,21 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { Routes, Route, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import Home from './Home';
 import Stream from './Stream';
-import { Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-function AnimatedRoutes() {
+type NavigationRoutesProps = {
+  accountChanged: number
+}
+
+function NavigationRoutes(props: NavigationRoutesProps) {
 
   const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    navigate('/');
+  }, [props.accountChanged]);
 
   return (
     <AnimatePresence>
@@ -19,4 +28,4 @@ function AnimatedRoutes() {
   );
 }
 
-export default AnimatedRoutes;
+export default NavigationRoutes;

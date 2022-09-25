@@ -6,7 +6,6 @@ export default (storageKey: string, initialState: any) => {
 
   useEffect(() => {
     const storageInBrowser = browserStorage.get(storageKey);
-    console.log(storageInBrowser)
     if (storageInBrowser) {
       setInternalState(storageInBrowser);
     }
