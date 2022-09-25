@@ -72,7 +72,7 @@ function Navbar(props: NavbarPops) {
         onMouseLeave={() => setIsHover(false)}
         className={`nav-content-btn flex-space-between ${disabled}`}
       >
-        Connect Wallet
+        {isValidChain ? 'Connect Wallet' : 'Wrong Network'}
         <RightArrow isHover={isHover} isValidChain={isValidChain} />
       </button>
     )
