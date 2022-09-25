@@ -5,13 +5,13 @@ type RightArrowProps = {
 
 export const RightArrow = (props: RightArrowProps) => {
   const { isHover, isValidChain } = props;
-
+  const animate = isHover ? 'animate-arrow' : '';
   return (
     <svg
       x='0px'
       y='0px'
       viewBox='0 0 330 330'
-      className='img-right-arrow'
+      className={`img-right-arrow ${animate}`}
     >
       <path
         fill={isValidChain ? (isHover ? '#0e0c1d' : '#fff') : '#ebebe466'}

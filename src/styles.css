@@ -51,8 +51,12 @@ button {
   width: 1.2rem;
   position: absolute;
   right: 1.7em;
-  transition: ease 200ms;
 }
+
+/* .animate-arrow {
+  right: 1em;
+  transition: all 2s ease;
+} */
 
 .img-metamask {
   width: 1.75rem;
@@ -274,7 +278,6 @@ button {
 
 .iframe-placeholder {
   background-color: var(--clr-blur-border);
-  /* background-image: var(--clr-blur); */
 }
 
 .iframe-placeholder,

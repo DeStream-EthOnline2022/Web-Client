@@ -87,7 +87,7 @@ function Navbar(props: NavbarPops) {
           <NavLink to='stream' className='nav-content-tab'>Stream</NavLink>
           <div className='nav-content-tab disabled'>Statistics</div>
         </div>
-        {userCtx?.user.address ? <Chip /> : <Button />}
+        {userCtx?.user.address && isValidChain ? <Chip /> : <Button />}
       </div>
     </nav>
   );
