@@ -21,7 +21,7 @@ To get a local copy up and running follow these simple example steps:
    yarn
    ```
 3. Run the Dapp on your local machine
-  ```sh
+   ```sh
    npm start
    ```
    alternatively
