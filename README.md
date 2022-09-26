@@ -1,6 +1,6 @@
 ## About The Project
 
-Innovative DAO protocal allowing livestream access to community members holding exclusive NFTs. The livestream for this particular demo displays the interior facility of a physical retail store owned and operated by our hypothetical DAO. Enabling members the ability to closely monitor what they own as stakeholders is the first step in our vision to further bridge the gap between Web3 and traditional businesses.
+Innovative DAO protocol allowing livestream access to community members holding exclusive NFTs. The livestream for this particular demo displays the interior facility of a physical retail store owned and operated by our hypothetical DAO. Enabling members the ability to closely monitor what they own as stakeholders is the first step in our vision to further bridge the gap between Web3 and traditional businesses.
 
 ## Getting Started
 
