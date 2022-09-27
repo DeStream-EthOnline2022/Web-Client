@@ -31,7 +31,7 @@ To get a local copy up and running follow these simple example steps:
 
 ## Usage
 
-Please make sure your wallet is connected to the `Polygon Mumbai Testnet` with sufficient funds(0.2 MATIC) in order to access the functionality of this Dapp. Testnet MATIC can be funded here [Polygon Faucet](https://faucet.polygon.technology/). The user will be lead with the following UX pattern:
+Please make sure your wallet is connected to the `Polygon Mumbai Testnet` with sufficient funds(0.2 MATIC) in order to access the functionality of this Dapp. Testnet MATIC can be funded here [Polygon Faucet](https://faucet.polygon.technology/). The user will be led with the following UX pattern:
 
 1. User presses button to connect with his/her MetaMask wallet
 2. Wallet prompts user to approve or reject session
